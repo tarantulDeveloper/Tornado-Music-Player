@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\squirrel.windows.1.9.1\build\squirrel.windows.props" Condition="Exists('..\packages\squirrel.windows.1.9.1\build\squirrel.windows.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EDF4F7FF-A223-4FD8-AB9D-A5144CD3D436}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Tornado.Player</RootNamespace>
+    <AssemblyName>Tornado Player</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\Tornado.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.Core.3.2.0\lib\net45\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Platform, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\Caliburn.Micro.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Platform.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\Caliburn.Micro.Platform.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Caliburn.Micro.Wrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tornado.Caliburn.Micro.Wrapper.1.0.2\lib\net472\Caliburn.Micro.Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet, Version=1.1.0.0, Culture=neutral, PublicKeyToken=1d14d6e5194e7f4a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeltaCompressionDotNet.1.1.0\lib\net20\DeltaCompressionDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet.MsDelta, Version=1.1.0.0, Culture=neutral, PublicKeyToken=46b2138a390abf55, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeltaCompressionDotNet.1.1.0\lib\net20\DeltaCompressionDotNet.MsDelta.dll</HintPath>
+    </Reference>
+    <Reference Include="DeltaCompressionDotNet.PatchApi, Version=1.1.0.0, Culture=neutral, PublicKeyToken=3e8888ee913ed789, processorArchitecture=MSIL">
+      <HintPath>..\packages\DeltaCompressionDotNet.1.1.0\lib\net20\DeltaCompressionDotNet.PatchApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.9.6.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.9.6.1\lib\net45\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Squirrel, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\squirrel.windows.1.9.1\lib\Net45\NuGet.Squirrel.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpCompress, Version=0.17.1.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.17.1\lib\net45\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Splat.1.6.2\lib\Net45\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Squirrel, Version=1.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\squirrel.windows.1.9.1\lib\Net45\Squirrel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UniqueIdGenerator.Net, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UniqueIdGenerator.1.0.2\lib\net45\UniqueIdGenerator.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.5.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.3.5.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Controls\HotKeyBindEditor.xaml.cs">
+      <DependentUpon>HotKeyBindEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converters\EqualityConverter.cs" />
+    <Compile Include="Converters\FractionToPercentageConverter.cs" />
+    <Compile Include="Converters\DoubleToGridLengthConverter.cs" />
+    <Compile Include="Converters\MarkedScrollBarPositionConverter.cs" />
+    <Compile Include="Converters\NotConverter.cs" />
+    <Compile Include="Converters\TimeSpanDurationFormatConverter.cs" />
+    <Compile Include="Converters\TimeSpanToSecondsConverter.cs" />
+    <Compile Include="Converters\VolumeToImageConverter.cs" />
+    <Compile Include="EventArgs\HotKeyActuatedEventArgs.cs" />
+    <Compile Include="EventArgs\ProgressUpdatedEventArgs.cs" />
+    <Compile Include="EventArgs\TracksReleasedEventArgs.cs" />
+    <Compile Include="Helpers\PreventItemFocusOnRightClickBehavior.cs" />
+    <Compile Include="Helpers\FocusOnLoadedBehavior.cs" />
+    <Compile Include="Helpers\FocusOnVisibleBehavior.cs" />
+    <Compile Include="Helpers\ImageContentHelper.cs" />
+    <Compile Include="Helpers\InvokeOnEnterHelper.cs" />
+    <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="Helpers\RoutedEventTrigger.cs" />
+    <Compile Include="Models\AppLayout.cs" />
+    <Compile Include="Models\Dialogs\Confirmation.cs" />
+    <Compile Include="Models\ManagedPlaylist.cs" />
+    <Compile Include="Models\PlaybarState.cs" />
+    <Compile Include="Models\Player\Playlist.cs" />
+    <Compile Include="Models\Dialogs\PlaylistCreation.cs" />
+    <Compile Include="Models\Player\PlaylistTrack.cs" />
+    <Compile Include="Models\Settings\HotKeyBind.cs" />
+    <Compile Include="Models\Settings\HotKeyBindArray.cs" />
+    <Compile Include="Models\Settings\Settings.cs" />
+    <Compile Include="Models\Shortcut.cs" />
+    <Compile Include="Models\Player\Snowflake.cs" />
+    <Compile Include="Models\Dialogs\WindowSettings.cs" />
+    <Compile Include="Models\TrackFolder.cs" />
+    <Compile Include="Services\AppDataService.cs" />
+    <Compile Include="Services\ContentManagerService.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\FileSystemBrowserService.cs" />
+    <Compile Include="Services\HotKeyService.cs" />
+    <Compile Include="Services\Interfaces\IAppDataService.cs" />
+    <Compile Include="Services\Interfaces\IContentManagerService.cs" />
+    <Compile Include="Services\Interfaces\IDataService.cs" />
+    <Compile Include="Models\PlayerState.cs" />
+    <Compile Include="Services\Interfaces\IDialogService.cs" />
+    <Compile Include="Services\Interfaces\IFileSystemBrowserService.cs" />
+    <Compile Include="Services\Interfaces\IHotkeyService.cs" />
+    <Compile Include="Services\Interfaces\ILayoutService.cs" />
+    <Compile Include="Services\Interfaces\ISettingsService.cs" />
+    <Compile Include="Services\Interfaces\ISnowflakeService.cs" />
+    <Compile Include="Services\Interfaces\IStorageService.cs" />
+    <Compile Include="Services\Interfaces\IWebService.cs" />
+    <Compile Include="Services\LayoutService.cs" />
+    <Compile Include="Services\SettingsService.cs" />
+    <Compile Include="Services\SnowflakeService.cs" />
+    <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Services\WebService.cs" />
+    <Compile Include="Utilities\FileSystemBrowsing\BrowseDirectoryDialog.cs" />
+    <Compile Include="Utilities\EventAggregator\PlaylistCreationMessage.cs" />
+    <Compile Include="Utilities\EventAggregator\PlaylistDeletionMessage.cs" />
+    <Compile Include="Utilities\FileSystemBrowsing\BrowseDialogFactory.cs" />
+    <Compile Include="Utilities\GlobalRandom.cs" />
+    <Compile Include="Utilities\HotKeys\HotKeyModifiers.cs" />
+    <Compile Include="Utilities\FileSystemBrowsing\IBrowseDialogFactory.cs" />
+    <Compile Include="Utilities\FileSystemBrowsing\IBrowseDirectoryDialog.cs" />
+    <Compile Include="Utilities\HotKeys\IHotKey.cs" />
+    <Compile Include="Utilities\PropertyGrid\HotKeyBindPropertyDescriptor.cs" />
+    <Compile Include="Utilities\HotKeys\VirtualKey.cs" />
+    <Compile Include="Utilities\Updater.cs" />
+    <Compile Include="ViewModels\Interfaces\ISettingsViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\ITabViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\ITrackFoldersViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\ITrackFolderViewModel.cs" />
+    <Compile Include="ViewModels\Playlist\CustomPlaylistViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\ConfirmationDialogViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\CreatePlaylistDialogViewModel.cs" />
+    <Compile Include="ViewModels\Dialogs\DialogViewModel.cs" />
+    <Compile Include="ViewModels\Editing\EditPlaylistViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Dialogs\IConfirmationDialogViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Dialogs\ICreatePlaylistDialogViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Dialogs\IDialogViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Editing\IEditPlaylistViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Playlist\ICustomPlaylistViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Playlist\IManagedPlaylistViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IPlaybarViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Playlist\IPlaylistCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Editing\IPlaylistEditorViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\Editing\ITrackSinkViewModel.cs" />
+    <Compile Include="ViewModels\Playlist\ManagedPlaylistViewModel.cs" />
+    <Compile Include="ViewModels\PlaybarViewModel.cs" />
+    <Compile Include="ViewModels\Playlist\PlaylistCollectionViewModel.cs" />
+    <Compile Include="ViewModels\Editing\PlaylistEditorViewModel.cs" />
+    <Compile Include="ViewModels\Editing\TrackSinkViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\TrackFoldersViewModel.cs" />
+    <Compile Include="ViewModels\TrackFolderViewModel.cs" />
+    <Compile Include="Views\Dialogs\ConfirmationDialogView.xaml.cs">
+      <DependentUpon>ConfirmationDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\CreatePlaylistDialogView.xaml.cs">
+      <DependentUpon>CreatePlaylistDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Editing\EditPlaylistView.xaml.cs">
+      <DependentUpon>EditPlaylistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlaybarView.xaml.cs">
+      <DependentUpon>PlaybarView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Playlist\PlaylistCollectionView.xaml.cs">
+      <DependentUpon>PlaylistCollectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Editing\PlaylistEditorView.xaml.cs">
+      <DependentUpon>PlaylistEditorView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Editing\TrackSinkView.xaml.cs">
+      <DependentUpon>TrackSinkView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\TrackFoldersView.xaml.cs">
+      <DependentUpon>TrackFoldersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrackFolderView.xaml.cs">
+      <DependentUpon>TrackFolderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrackView.xaml.cs">
+      <DependentUpon>TrackView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\HotKeyBindEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\ConfirmationDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\CreatePlaylistDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Editing\EditPlaylistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\PlaybarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\Playlist\PlaylistCollectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Editing\PlaylistEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\Playlist\PlaylistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Views\ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="EventArgs\PlaylistLoadedEventArgs.cs" />
+    <Compile Include="EventArgs\TrackChangedEventArgs.cs" />
+    <Compile Include="Models\Player\Track.cs" />
+    <Compile Include="Services\FileSystemService.cs" />
+    <Compile Include="Services\Interfaces\IFileSystemService.cs" />
+    <Compile Include="Services\Interfaces\IMusicPlayerService.cs" />
+    <Compile Include="Services\MusicPlayerService.cs" />
+    <Compile Include="Utilities\TornadoPlayer.cs" />
+    <Compile Include="Utilities\HotKeys\Win32Handler.cs" />
+    <Compile Include="Utilities\HotKeys\Win32HotKey.cs" />
+    <Compile Include="ViewModels\Interfaces\Playlist\IPlaylistViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\ITrackViewModel.cs" />
+    <Compile Include="ViewModels\Playlist\PlaylistViewModel.cs" />
+    <Compile Include="ViewModels\TrackViewModel.cs" />
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Playlist\PlaylistView.xaml.cs">
+      <DependentUpon>PlaylistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Themes\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Geometries.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Images.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="ViewModels\Interfaces\IShellViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Interfaces\IViewModelBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Interfaces\IMainViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ShellViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ViewModelBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\MainViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AppBootstrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Editing\TrackSinkView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrackFoldersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrackFolderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrackView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Helpers\SelectedItemsHelper.cs" />
+    <Compile Include="Converters\ResourceConverter.cs" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Tornado.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Back.png" />
+    <Resource Include="Images\Pause.png" />
+    <Resource Include="Images\Play.png" />
+    <Resource Include="Images\Loop.png" />
+    <Resource Include="Images\Shuffle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Favorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Max Volume.png" />
+    <Resource Include="Images\Low Volume.png" />
+    <Resource Include="Images\Mute.png" />
+    <Resource Include="Images\High Volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\YouTube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Minus.png" />
+    <Resource Include="Images\Plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Folder.png" />
+    <Resource Include="Images\New Folder.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\squirrel.windows.1.9.1\build\squirrel.windows.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\squirrel.windows.1.9.1\build\squirrel.windows.props'))" />
+    <Error Condition="!Exists('..\packages\squirrel.windows.1.9.1\build\squirrel.windows.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\squirrel.windows.1.9.1\build\squirrel.windows.targets'))" />
+  </Target>
+  <Import Project="..\packages\squirrel.windows.1.9.1\build\squirrel.windows.targets" Condition="Exists('..\packages\squirrel.windows.1.9.1\build\squirrel.windows.targets')" />
+</Project>

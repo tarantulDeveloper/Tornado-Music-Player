@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Tornado.Player.Views.TrackView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Caliburn="http://www.caliburnproject.org"
+             xmlns:Helpers="clr-namespace:Tornado.Player.Helpers"
+			 xmlns:ViewModels="clr-namespace:Tornado.Player.ViewModels"
+			 mc:Ignorable="d"
+			 d:DataContext="{d:DesignInstance ViewModels:TrackViewModel}">
+    <UserControl.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Find on YouTube"
+                      Helpers:ImageContentHelper.Image="{StaticResource Youtube}"
+                      Caliburn:Message.Attach="FindOnYouTube"/>
+
+            <MenuItem Header="Favorite"
+                      IsCheckable="True"
+                      IsChecked="{Binding PlaylistTrack.Track.IsFavorite, Mode=OneWay}"
+                      Caliburn:Message.Attach="ToggleFavorite"/>
+        </ContextMenu>
+    </UserControl.ContextMenu>
+
+    <TextBlock Text="{Binding PlaylistTrack.Track.Name}"/>
+</UserControl>

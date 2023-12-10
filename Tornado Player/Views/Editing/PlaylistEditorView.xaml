@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="Tornado.Player.Views.Editing.PlaylistEditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:Caliburn="http://www.caliburnproject.org"
+             xmlns:Helpers="clr-namespace:Tornado.Player.Helpers"
+             xmlns:ViewModels="clr-namespace:Tornado.Player.ViewModels.Editing"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance ViewModels:PlaylistEditorViewModel}">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <StackPanel DockPanel.Dock="Right"
+                        Orientation="Horizontal"
+                        Margin="5, 0">
+                <Button ToolTip="Delete Selected"
+                        Height="20"
+                        Caliburn:Message.Attach="DeletePlaylist">
+                    <Image Source="{StaticResource Delete}"/>
+                </Button>
+
+                <Separator Width="5" Visibility="Hidden"/>
+
+                <Button ToolTip="Create New"
+                        Height="20"
+                        Caliburn:Message.Attach="CreateNewPlaylist">
+                    <Image Source="{StaticResource Plus}"/>
+                </Button>
+            </StackPanel>
+
+            <ComboBox ItemsSource="{Binding Items, Mode=OneTime}"
+                      SelectedItem="{Binding ActiveItem}"
+                      SelectedIndex="{Binding SelectedIndex, Mode=OneWayToSource}"
+                      VerticalAlignment="Center">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DisplayName, Mode=OneTime}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </DockPanel>
+
+        <ContentControl Caliburn:View.Model="{Binding ActiveItem}"/>
+    </DockPanel>
+</UserControl>
