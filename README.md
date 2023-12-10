@@ -1,7 +1,9 @@
 # Tornado Player
 C# WPF music player application.
 
-Please report any bugs as issues to this repository, or contact the developer on Discord: Aleksbgbg#9618.
+WARNING!!!
+YOU HAVE TO INSTALL AND CONFIGURE SQuirreL 
+TO PROPERLY START THE APP
 
 ## Preview
 Here are some screenshots of the current interface.
